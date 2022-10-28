@@ -7,13 +7,14 @@ import Schedule from './Schedule';
 import Favorites from './Favorites';
 import Tabs from './Tabs.js';
 import './Base.css';
+import secrets from './secrets.json'
 
 const urlTags = 'https://tasty.p.rapidapi.com/tags/list';
 
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '505f9bda9dmshb8ad895534ace8dp13e0f7jsn5f25c339af9e',
+    'X-RapidAPI-Key': secrets.secrets,
     'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
   }
 };

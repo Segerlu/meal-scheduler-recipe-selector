@@ -3,13 +3,17 @@ import { useState, useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 import './Recipes.css';
 import Page from './inside-book/Page'
+import secrets from './secrets.json'
+
+
 
 const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=50&q=';
+console.log(secrets.secrets)
 
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '505f9bda9dmshb8ad895534ace8dp13e0f7jsn5f25c339af9e',
+    'X-RapidAPI-Key': secrets.secrets,
     'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
   }
 };
@@ -53,7 +57,7 @@ const Recipes = ({ tags }) => {
 
   let value = 'No Value';
   try {
-    value = input.value;
+    value = input.value ? input.value : 'No Value';
   } catch {
     console.log('Input not created yet')
   }
