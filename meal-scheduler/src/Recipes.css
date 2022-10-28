@@ -1,0 +1,50 @@
+.category-select {
+    position: absolute;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.insideDiv{
+width:10%;
+}
+
+.book {
+    z-index: 0;
+    margin-top: 1em;
+    height: 100%;
+    width: 100%;
+}
+
+#pages {
+    display:flex;
+    height: 100%;
+    width: 100%;
+}
+
+#searchfield {
+    margin-top: 3%;
+    margin-left: 1%;
+    width:100%;
+    height:5%;
+}
+
+.dropdown {
+    border: 1px black solid;
+    border-radius: 5px;
+    width:90%;
+    max-width: 90%;
+    max-height: 10em;
+    padding: 5px;
+    margin-right: 1.25em;
+    overflow-y:auto;
+}
+
+.dropdown:hover {
+    background-color:azure;
+    cursor: pointer;
+}.results {
+    height:5%;
+    width:100%;
+    border:1px solid black;
+}

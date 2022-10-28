@@ -1,0 +1,20 @@
+.container {
+    border:1px black solid;
+    width:48%;
+    height: 85%;
+    margin: 1em;
+    overflow-y: scroll;
+}
+.results {
+    padding-left: 2em;
+    width:93.5%;
+}
+
+.results:hover {
+    background-color: antiquewhite;
+}
+
+img {
+    width:30%;
+    margin-left: 2.5%;
+}

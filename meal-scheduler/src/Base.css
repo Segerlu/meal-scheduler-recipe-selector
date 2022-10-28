@@ -1,0 +1,14 @@
+:root {
+    --component-size:calc(65%);
+}
+
+#base {
+    
+    border-radius: 10px;
+    position:absolute;
+    left: calc(50% - (var(--component-size)/2));
+    top: calc(50% - (var(--component-size)/2));
+    border: solid black 1px;
+    width:var(--component-size);
+    height:var(--component-size);
+}
