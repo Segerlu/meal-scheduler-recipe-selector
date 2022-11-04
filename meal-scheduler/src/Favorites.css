@@ -1,0 +1,14 @@
+.favorite {
+    width: 5em;
+    height: 5em;
+    padding: .5em;
+    overflow-x: hidden;
+    display:inline-block;
+}
+.favoritePic {
+    width: 80%;
+}
+
+.favDiv {
+    margin-top: 10vh;
+}

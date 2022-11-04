@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 let tabList = [
     'HOME',
     'RECIPES',
-    'SEARCH',
     'FAVORITES',
     'SCHEDULE'
 ];

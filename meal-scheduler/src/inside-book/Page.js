@@ -1,28 +1,65 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Page.css'
+import notFound from './404.png'
+import ReactPlayer from 'react-player/lazy'
+
+const url = 'http://localhost:5555';
 
 //pull info from local storage
-let favorites = {favorites:[]};
-try{
-  if (localStorage.getItem(favorites))
-  favorites = localStorage.getItem(favorites);
-} catch {
-  console.log('failed to load favorites')
-}
+let favorites = [];
 
 const Page = ({ results }) => {
+  useEffect(() => {
+
+    fetch(url + '/read/favorites')
+      .then(results => results.json())
+      .then(data => {
+
+        favorites.push(data.id);
+
+      })
+      .catch(error => {
+        console.log('this error', error)
+      })
+
+  }, [])
+
+  function saveFavorites(id) {
+    //console.log('favorite function', favorites)
+    //console.log(selectedRecipe)
+    if (favorites.includes(id) || id < 0) {
+
+    } else {
+      favorites.push(id);
+      //console.log('is pushed',favorites)
+      //call the post
+      fetch(url + '/add/favorites', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(selectedRecipe)
+      })
+        .then(results => {
+          console.log('results', results)
+        })
+    }
+  }
+
 
   let [selectedRecipe, setSelectedRecipe] = useState({
     name: "No recipe selected",
-    id:-1,
+    id: -1,
     instructions: [],
     num_servings: 0,
-    thumbnail_url: './404.png',
-    video_url: 'no Video'
+    thumbnail_url: notFound,
+    video_url: 'no Video',
+    ingredients: ['No Ingredients']
   });
 
-  console.log('Page updated')
+  //console.log('Page updated')
   if (!results) {
     return (
       <div className='container'>
@@ -39,34 +76,62 @@ const Page = ({ results }) => {
           results.map(result => {
             return (<div
               className='results'
-              key={result.id}
+              key={result.idMeal}
               onClick={() => {
                 setSelectedRecipe({
-                  name: result.name,
-                  instructions: result.instructions,
-                  num_servings: result.num_servings,
-                  thumbnail_url: result.thumbnail_url,
-                  video_url: result.video_url
+                  id: result.idMeal,
+                  name: result.strMeal,
+                  instructions: result.strInstructions ? result.strInstructions : 'No instructions available',
+                  thumbnail_url: result.strMealThumb ? result.strMealThumb : './404.png',
+                  video_url: result.strYoutube ? result.strYoutube : 'https://youtu.be/BUykFA7FCo4',
+                  ingredients: result.strIngredient1 ? [result.strIngredient1, result.strIngredient2, result.strIngredient3, result.strIngredient4, result.strIngredient5, result.strIngredient6, result.strIngredient7, result.strIngredient8, result.strIngredient9, result.strIngredient10, result.strIngredient11, result.strIngredient12, result.strIngredient13, result.strIngredient14, result.strIngredient15, result.strIngredient16, result.strIngredient17, result.strIngredient18, result.strIngredient19, result.strIngredient20] : ['No Ingredients', 'No Ingredients']
                 })
               }}
             >
-              {result.name}
+              {result.strMeal}
             </div>)
           })}
 
       </div>
 
+      <div className='bookmark'>
+        <div className='ingredients'>
+          <h2>Ingredients</h2>
+          <ol id='ingredientList'>
+            {
+
+              selectedRecipe.ingredients.map((ingredient) => {
+                return ingredient ? <li>{ingredient}</li> : <></>
+              })
+            }
+
+          </ol>
+        </div>
+      </div>
+
       <div className='container'>
         <div className='details'>
           <h2>{selectedRecipe.name}</h2>
-          <button onClick={() => saveFavorites(selectedRecipe.id)}>Favorite</button>
-          <img src={selectedRecipe.thumbnail_url} alt='./404.png' />
-          <h3>serves: {selectedRecipe.num_servings}</h3>
-          <ol>
-            {selectedRecipe.instructions.map(instruction => {
-              return <li key={instruction.id}>{instruction.display_text}</li>
-            })}
-          </ol>
+          <button onClick={() => {
+
+            console.log(selectedRecipe.id)
+            saveFavorites(selectedRecipe.id)
+
+          }}>Favorite</button>
+          <div id='media'> <img src={selectedRecipe.thumbnail_url} alt={notFound} />
+            <ReactPlayer
+              url={selectedRecipe.video_url}
+              controls={true}
+              width='60%'
+              height='60%'
+              volume={0}
+              muted={true}
+              playing={true}
+            />
+          </div>
+
+          <p>{selectedRecipe.instructions}</p>
+
         </div>
 
       </div>
@@ -74,16 +139,6 @@ const Page = ({ results }) => {
   )
 }
 
-function saveFavorites(id) {
-  console.log('favorite function', favorites)
-  if (favorites.favorites.includes(id) || id < 0) {
 
-  } else {
-    console.log(favorites)
-    favorites.favorites.push(id);
-    console.log(favorites)
-    localStorage.setItem(favorites, favorites.favorites);
-  }
-}
 
 export default Page

@@ -1,12 +1,15 @@
-#tabs {
-    position:absolute;
-    left: calc(50% - (var(--component-size)));
-    top: calc(50% - (var(--component-size)*.83));
+.tab {
+    
+    font-size: calc(var(--component-size)*.22);
+    width: calc(var(--component-size));
+    background-color: rgb(255, 228, 196, 60%);
+    border-radius: 10px;
 }
 
-.tab {
-    font-size: calc(var(--component-size)*2);
-    width: calc(var(--component-size)*2);
-    border: solid black 1px;
-    border-radius: 5px;
+#tabs {
+    padding-top: 5vh;
+}
+
+.tab:hover {
+    background-color: rgb(255, 228, 196, 90%);
 }
