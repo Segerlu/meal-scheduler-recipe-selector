@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 import './Recipes.css';
 import Page from './inside-book/Page'
-import secrets from './secrets.json'
+
 
 const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
