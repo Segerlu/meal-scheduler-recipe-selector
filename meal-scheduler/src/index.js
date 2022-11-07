@@ -5,11 +5,13 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+<>
+<div id='title'>
+<div><h1>RECIPE TRACKER</h1></div>
+<div><h2>MEAL SCHEDULER</h2></div>
+</div>
   <div id='book'>
   <Base />
   </div>
+</>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

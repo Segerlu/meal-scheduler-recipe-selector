@@ -25,7 +25,7 @@ const Recipes = ({ tags }) => {
       .then(jsonData => {
 
         if (jsonData.meals) {
-          console.log('fetched: ',jsonData.meals)
+          //console.log('fetched: ',jsonData.meals)
           setResults(jsonData.meals)
         }
       })

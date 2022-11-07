@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
+#title {
+  text-align: center;
+  background-color: rgb(255, 228, 196, 35%);
+}
+
 .welcome {
   background-color: rgb(255, 228, 196, 50%);
   color: black;
@@ -20,6 +25,18 @@ code {
   width: 80vh;
   height: 100%;
   text-align: center;
+}
+
+.bookmark {
+  position: absolute;
+  height: 100vh;
+  width: 50vw;
+  background-image: url('./bookmark.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  left: 40vw;
+  top: -20vh;
+  z-index: 0;
 }
 
 #book {
@@ -31,4 +48,14 @@ code {
   background-image: url("./book.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  z-index: 500;
+}
+
+.container {
+  padding-top: 2em;
+  width:18.5vw;
+  height: 53vh;
+  margin: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

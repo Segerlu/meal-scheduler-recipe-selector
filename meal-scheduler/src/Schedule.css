@@ -1,0 +1,17 @@
+.schedule {
+    margin-top: 5vh;
+    display: inline-flex
+}
+
+.weekday {
+    border: 1px black solid;
+    font-size: .5vw;
+}
+.entireSchedule {
+    display:grid;
+}
+
+.ingredients {
+    font-size: .75vw;
+    width: 5vw;
+}

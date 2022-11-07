@@ -65,10 +65,51 @@ app.get('/delete/favorites/:id', (req, res) => {
     })
 })
 
-//Read schedule - PHASE II
+// //Read schedule - PHASE II
+// app.get('/read/schedule', (req, res) => {
 
-//Post new schedule - PHASE II
+//     client.query('SELECT * FROM schedule;')
+//     .then(data => {
+//         console.log('sending')
+//         res.send(data.rows)
+//     })
+//     .catch(error => {
+//         res.send(error)
+//     }) 
+// })
 
-//Delete schedule - PHASE II
+// //Post new schedule - PHASE II
+// app.post('/add/schedule', (req, res) => {
+//     let schedule = req.body;
+//     let sql = 
+//     `INSERT INTO schedule (id, favoriteId, name, instructions, thumbnail_url, video_url, ingredients) 
+//     VALUES (${schedule.id}, ${schedule.favoriteId} '${schedule.name}', '${schedule.instructions}', '${schedule.thumbnail_url}', '${schedule.vidoe_url}', '${schedule.ingredients}');`
+
+//     client.query(sql)
+//     .then(data => {
+//         res.status(201)
+//         res.send('Favorite Added')
+//     })
+//     .catch(error => {
+//         console.log(error)
+//         res.send(error)
+//     })
+
+// })
+
+// //Delete schedule - PHASE II
+// app.get('/delete/schedule', (req, res) => {
+
+//     client.query(`TRUNCATE TABLE schedule`)
+//     .then(data => {
+//         console.log('schedule deleted')
+//         res.send('schedule deleted')
+//     })
+//     .catch(error => {
+//         console.log(error)
+//         res.status(500)
+//         res.send(error)
+//     })
+// })
 
 app.listen(PORT, console.log('listening on:', PORT));

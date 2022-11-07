@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './Favorites.css';
 import notFound from './inside-book/404.png'
 import Tooltip from 'react-tooltip'
-import ReactPlayer from 'react-player/lazy'
 
 const Favorites = () => {
 
@@ -39,10 +38,11 @@ const Favorites = () => {
     yes = window.confirm('Are you sure you would like to delete the selected favorite?');
 
     if (yes) {
-      setRemove(!remove)
+      
       fetch(url + '/delete/favorites/' + id)
         .then(data => {
-          console.log(data)
+          //console.log(data)
+          setRemove(!remove)
         })
         .catch(error => {
           console.log(error)
@@ -52,14 +52,14 @@ const Favorites = () => {
 
   return (
     <div className='favDiv'>
-
+      <h3>Click to delete</h3>
       {favorites.map(favorite => {
         return <div className='favorite' key={favorite.id}>
-          <Tooltip />
+          <Tooltip key={favorites.id + 'tooltip'}/>
             <img 
               src={favorite.thumbnail_url} 
               alt={notFound} 
-              data-tip={favorite.name + ': Click to delete'} 
+              data-tip={favorite.name} 
               className='favoritePic' 
               key={favorite.id + 'Pic'} 
               onClick={() => { deleteFaverite(favorite.id) }} 

@@ -1,12 +1,13 @@
 .tab {
     
-    font-size: calc(var(--component-size)*.22);
-    width: calc(var(--component-size));
+    font-size: 1vw;
+    width: 5vw;
     background-color: rgb(255, 228, 196, 60%);
     border-radius: 10px;
 }
 
 #tabs {
+    width:4.5vw;
     padding-top: 5vh;
 }
 

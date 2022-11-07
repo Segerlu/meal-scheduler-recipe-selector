@@ -43,7 +43,7 @@ const Page = ({ results }) => {
         body: JSON.stringify(selectedRecipe)
       })
         .then(results => {
-          console.log('results', results)
+          //console.log('results', results)
         })
     }
   }
@@ -101,7 +101,7 @@ const Page = ({ results }) => {
             {
 
               selectedRecipe.ingredients.map((ingredient) => {
-                return ingredient ? <li>{ingredient}</li> : <></>
+                return ingredient ? <li key={ingredient + 'Key'}>{ingredient}</li> : <></>
               })
             }
 
@@ -114,7 +114,7 @@ const Page = ({ results }) => {
           <h2>{selectedRecipe.name}</h2>
           <button onClick={() => {
 
-            console.log(selectedRecipe.id)
+            //console.log(selectedRecipe.id)
             saveFavorites(selectedRecipe.id)
 
           }}>Favorite</button>
@@ -122,8 +122,8 @@ const Page = ({ results }) => {
             <ReactPlayer
               url={selectedRecipe.video_url}
               controls={true}
-              width='60%'
-              height='60%'
+              width='11vw'
+              height='6vw'
               volume={0}
               muted={true}
               playing={true}

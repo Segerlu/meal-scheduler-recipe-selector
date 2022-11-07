@@ -1,14 +1,25 @@
 .favorite {
-    width: 5em;
-    height: 5em;
+    width: 5vw;
+    height: 5vw;
     padding: .5em;
     overflow-x: hidden;
+    overflow-y:hidden;
     display:inline-block;
+    z-index: 500;
 }
 .favoritePic {
-    width: 80%;
+    width: 4.5vw;
+    height: 4.5vw;
+    z-index: inherit;
 }
 
 .favDiv {
     margin-top: 10vh;
+    width: 38vw;
+    text-align: center;
+    z-index: 500;
+}
+
+h3 {
+    background-color: rgb(255, 228, 196, 50%);
 }

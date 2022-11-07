@@ -1,0 +1,15 @@
+.meal-select {
+    position: absolute;
+    width: 40%;
+    z-index: 0;
+}
+
+.selected-meal {
+    position: absolute;
+    width: 40%;
+    z-index: 500;
+}
+
+.weekday {
+    padding-bottom: 2vh;
+}
