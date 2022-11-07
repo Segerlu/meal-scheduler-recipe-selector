@@ -46,7 +46,7 @@ const Schedule = () => {
         console.log('this error', error)
       })
 
-  }, [])
+  }, [url])
 
   const addMeal = (key, value) => {
     var tempObj = {};

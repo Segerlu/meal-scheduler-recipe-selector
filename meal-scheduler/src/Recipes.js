@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Dropdown from 'react-dropdown';
 import './Recipes.css';
 import Page from './inside-book/Page'
 

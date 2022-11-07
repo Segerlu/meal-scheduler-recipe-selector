@@ -30,7 +30,7 @@ const Favorites = () => {
         console.log('this error', error)
       })
 
-  }, [remove])
+  }, [remove, url])
 
   function deleteFaverite(id) {
 
